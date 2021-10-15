@@ -22,7 +22,14 @@ jobs:
           key: ${{ env.pythonLocation }}-${{ hashFiles('test_requirements.txt') }}
       - if: github.repository == 'tillahoffmann/template'
         name: "Maybe apply template"
-        run: "python apply_template.py myproject -u myuser -r myrepo"
+        run: |
+          python apply_template.py myproject -u myuser -r myrepo
+          ! grep -r TEMPLATE_NAME .
+          ! grep -r TEMPLATE_USER .
+          ! grep -r TEMPLATE_REPO .
+          ! find . -name TEMPLATE_NAME
+          ! find . -name TEMPLATE_USER
+          ! find . -name TEMPLATE_REPO
       - name: "Install dependencies"
         run: "pip install -r test_requirements.txt"
       - name: "Build the project"
