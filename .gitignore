@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Custom excludes
+.DS_Store
+.vscode
+playground/
+workspace/
