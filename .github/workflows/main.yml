@@ -24,9 +24,9 @@ jobs:
         name: "Maybe apply template"
         run: |
           python apply_template.py myproject -u myuser -r myrepo
-          ! grep --exclude-dir=.git -r TEMPLATE_NAME .
-          ! grep --exclude-dir=.git -r TEMPLATE_USER .
-          ! grep --exclude-dir=.git -r TEMPLATE_REPO .
+          ! grep --exclude-dir=.git --exclude=apply_template.py -r TEMPLATE_NAME .
+          ! grep --exclude-dir=.git --exclude=apply_template.py -r TEMPLATE_USER .
+          ! grep --exclude-dir=.git --exclude=apply_template.py -r TEMPLATE_REPO .
           ! find . -name TEMPLATE_NAME
           ! find . -name TEMPLATE_USER
           ! find . -name TEMPLATE_REPO
