@@ -14,8 +14,9 @@ def replace(text: str, lookup):
 
 parser = argparse.ArgumentParser()
 parser.add_argument('template_name', help='name of the template')
-parser.add_argument('--template-user', '-u', help='github username')
-parser.add_argument('--template-repo', '-r', help='github repository name')
+parser.add_argument('--template_user', '-u', help='github username')
+parser.add_argument('--template_repo', '-r', help='github repository name')
+parser.add_argument('--keep_script', help='don\'t delete this script', action='store_true')
 args = parser.parse_args()
 
 lookup = {
@@ -64,3 +65,8 @@ for path, dirnames, filenames in os.walk('.'):
             with open(filename, 'wb') as fp:
                 fp.write(newtext)
             print(f'replaced content in {filename}')
+
+# Delete this script.
+if not args.keep_script:
+    os.unlink(__file__)
+    print(f'removed {__file__}')
