@@ -1,6 +1,6 @@
-.PHONY : docs lint sync tests
+.PHONY : docs doctests lint sync tests
 
-build : lint tests docs
+build : lint tests docs doctests
 
 lint :
 	flake8
@@ -10,6 +10,9 @@ tests :
 
 docs :
 	sphinx-build . docs/_build
+
+doctests :
+	sphinx-build -b doctest . docs/_build
 
 sync : requirements.txt
 	pip-sync
