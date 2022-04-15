@@ -28,7 +28,7 @@ if args.template_user and args.template_repo:
     lookup['TEMPLATE_REPO'] = args.template_repo
 else:
     output = subprocess.check_output(['git', 'remote', '-v']).decode()
-    match = re.search(r'git@github.com:(?P<user>\w+)/(?P<repo>\w+).git', output)
+    match = re.search(r'git@github.com:(?P<user>[\w-]+)/(?P<repo>[\w-]+).git', output)
     if not match:
         raise ValueError('cannot determine the github user or repository name')
     lookup['TEMPLATE_USER'] = args.template_user or match.group('user')
