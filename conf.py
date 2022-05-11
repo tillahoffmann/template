@@ -11,3 +11,7 @@ plot_formats = [
     ('png', 144),
 ]
 html_theme = 'nature'
+
+# Configure autodoc to avoid excessively long fully-qualified names.
+add_module_names = False
+autodoc_typehints_format = 'short'
