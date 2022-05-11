@@ -7,6 +7,11 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+env:
+  # Our tests may contain a number of stochastic elements. Setting a seed will make sure they are
+  # not flaky (but also hide potential issues).
+  SEED: "0"
+
 jobs:
   build:
     name: Continuous Integration
@@ -31,11 +36,11 @@ jobs:
           ! find . -name TEMPLATE_USER | grep .
           ! find . -name TEMPLATE_REPO | grep .
           ! ls apply_template.py
-      - name: "Install dependencies"
-        run: "pip install -r test_requirements.txt"
-      - name: "Build the project"
-        run: "make build"
-        env:
-          # Our tests may contain a number of stochastic elements. Setting a seed will make sure
-          # they"re not flaky (but also hide potential issues).
-          SEED: "0"
+      - name: Install dependencies
+        run: pip install -r test_requirements.txt
+      - name: Run the tests
+        run: make tests
+      - name: Lint the code
+        run: make lint
+      - name: Build the documentation
+        run: make docs doctests
