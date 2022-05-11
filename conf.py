@@ -10,3 +10,4 @@ napoleon_custom_sections = [('Returns', 'params_style')]
 plot_formats = [
     ('png', 144),
 ]
+html_theme = 'nature'
