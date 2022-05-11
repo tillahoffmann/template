@@ -24,8 +24,8 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles("test_requirements.txt") }}
-      - if: github.repository == "tillahoffmann/template"
+          key: ${{ env.pythonLocation }}-${{ hashFiles('test_requirements.txt') }}
+      - if: github.repository == 'tillahoffmann/template'
         name: "Maybe apply template"
         run: |
           python apply_template.py myproject -u myuser -r myrepo
