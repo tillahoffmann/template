@@ -16,12 +16,20 @@ certifi==2021.10.8
     # via requests
 charset-normalizer==2.0.7
     # via requests
+cloudpickle==2.1.0
+    # via doit
+colorama==0.4.5
+    # via doit-interface
 coverage[toml]==6.0.2
     # via pytest-cov
 cycler==0.11.0
     # via matplotlib
 docutils==0.17.1
     # via sphinx
+doit==0.36.0
+    # via doit-interface
+doit-interface==0.1.6
+    # via template-name
 flake8==4.0.1
     # via template-name
 fonttools==4.28.5
@@ -30,6 +38,8 @@ idna==3.3
     # via requests
 imagesize==1.2.0
     # via sphinx
+importlib-metadata==4.12.0
+    # via doit
 iniconfig==1.1.1
     # via pytest
 jinja2==3.0.2
@@ -103,6 +113,8 @@ tomli==1.2.1
     # via coverage
 urllib3==1.26.7
     # via requests
+zipp==3.8.1
+    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
