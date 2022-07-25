@@ -11,6 +11,7 @@ setup(
     ],
     extras_require={
         "tests": [
+            "doit-interface",
             "flake8",
             "pytest",
             "pytest-cov",

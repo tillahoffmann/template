@@ -39,8 +39,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r test_requirements.txt
       - name: Run the tests
-        run: make tests
+        run: doit tests
       - name: Lint the code
-        run: make lint
+        run: doit lint
       - name: Build the documentation
-        run: make docs doctests
+        run: doit docs
