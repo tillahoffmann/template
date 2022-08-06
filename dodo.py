@@ -15,4 +15,4 @@ with di.defaults(basename="docs"):
     manager(name="tests", actions=["sphinx-build -b doctest . docs/_build"])
 
 manager(basename="lint", actions=["flake8"])
-manager(basename="tests", actions=["pytest"])
+manager(basename="tests", actions=["pytest --cov-fail-under=100"])
